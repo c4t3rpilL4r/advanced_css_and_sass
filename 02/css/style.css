@@ -8,18 +8,18 @@ Dark green: #28b485
 */
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 body {
-    font-family: "Lato", sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.7;
-    color: #777;
-    padding: 30px;
+	font-family: "Lato", sans-serif;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 1.7;
+	color: #777;
+	padding: 30px;
 }
 
 /* ------------------------------------------------------------------------------------------------------------------------ */
@@ -29,13 +29,58 @@ body {
 /* ------------------------------------------------------------------------------------------------------------------------ */
 
 .header {
-    height: 95vh; /* 95% viewport height */
-    background-image: linear-gradient(
-        to right bottom, /* this is to make the gradient go to the right bottom */
-        rgba(126, 213, 111, 0.8), 
-        rgba(40, 180, 133, 0.8)),
-        url(../img/hero.jpg); /* to go up, use ../ */
-    background-size: cover;
-    background-position: top; /* this will always display the top of the image */
-    clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%); /* this will make the clip design */
+	height: 95vh;
+	/* 95% viewport height */
+	background-image: linear-gradient(to right bottom,
+		/* this is to make the gradient go to the right bottom */
+		rgba(126, 213, 111, 0.8),
+		rgba(40, 180, 133, 0.8)),
+		url(../img/hero.jpg);
+	/* to go up, use ../ */
+	background-size: cover;
+	background-position: top;
+	/* this will always display the top of the image */
+	position: relative;
+	clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+	/* this will make the clip design */
+}
+
+.logo-box {
+	position: absolute;
+	top: 40px;
+	left: 40px;
+}
+
+.logo {
+	height: 35px;
+}
+
+.text-box {
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+        -webkit-transform: translate(-50%, -50%);
+        -moz-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        -o-transform: translate(-50%, -50%);
+}
+
+.heading-primary {
+	color: #fff;
+	text-transform: uppercase;
+}
+
+.heading-primary-main {
+	display: block;
+	font-size: 60px;
+	font-weight: 400;
+	letter-spacing: 35px;
+}
+
+.heading-primary-sub {
+	display: block;
+	font-size: 20px;
+	font-weight: 700;
+	letter-spacing: 17.4px;
 }
