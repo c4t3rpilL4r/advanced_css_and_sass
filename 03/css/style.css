@@ -7,26 +7,45 @@ Dark green: #28b485
 
 */
 
-* {
+/* ::after and ::before pseudo-elements should be included since * only refers to the real elements */
+*,
+*::after,
+*::before {
 	margin: 0;
 	padding: 0;
-	box-sizing: border-box;
+
+	/* this will inherit the value from the body element -- border-box */
+	box-sizing: inherit;
+}
+
+/* to change the root font-size value -- for rem value -- */
+html {
+
+	/* to make it easier, change the font-size to 10px since 1 rem is == to root font-size */
+	/* font-size: 10px; */
+
+	/* but changing the root font-size here is bad practice */
+	/* instead, since we want 10px, divide 10 by 16 (the browser root font-size) multiplied by 100 for the percent */
+	font-size: 62.5%;
 }
 
 body {
 	font-family: "Lato", sans-serif;
 	font-weight: 400;
-	font-size: 16px;
+	/* font-size: 16px; */
 	line-height: 1.7;
 	color: #777;
-	padding: 30px;
+	padding: 3rem;
+
+	/* this value will be inherited by the global element * */
+	box-sizing: border-box;
 }
 
-/* ------------------------------------------------------------------------------------------------------------------------ */
-/* ------------------------------------------------------------------------------------------------------------------------ */
-/* -------------------------------------------------------- HEADER -------------------------------------------------------- */
-/* ------------------------------------------------------------------------------------------------------------------------ */
-/* ------------------------------------------------------------------------------------------------------------------------ */
+/* ---------------------------------------------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------- HEADER ------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------------------------- */
 
 .header {
 
@@ -35,7 +54,7 @@ body {
 
 	/* this is to make the gradient go to the right bottom */
 	/* to go up, use ../ */
-	background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+	background-image: linear-gradient(to right bottom, rgba(126, 213, 111, .8), rgba(40, 180, 133, .8)), url(../img/hero.jpg);
 
 
 	background-size: cover;
@@ -50,12 +69,12 @@ body {
 
 .logo-box {
 	position: absolute;
-	top: 40px;
-	left: 40px;
+	top: 4rem;
+	left: 4rem;
 }
 
 .logo {
-	height: 35px;
+	height: 3.5rem;
 }
 
 .text-box {
@@ -74,14 +93,14 @@ body {
 	/* in the tutorial, the heading shakes after the animation -- this fix is to hide the shaking */
 	backface-visibility: hidden;
 
-	margin-bottom: 60px;
+	margin-bottom: 6rem;
 }
 
 .heading-primary-main {
 	display: block;
-	font-size: 60px;
+	font-size: 6rem;
 	font-weight: 400;
-	letter-spacing: 35px;
+	letter-spacing: 3.5rem;
 
 	/* animation */
 	animation-name: moveInLeft;
@@ -96,9 +115,9 @@ body {
 
 .heading-primary-sub {
 	display: block;
-	font-size: 20px;
+	font-size: 2rem;
 	font-weight: 700;
-	letter-spacing: 17.4px;
+	letter-spacing: 1.75rem;
 
 	/* animation */
 	animation: moveInRight 1s ease-out;
@@ -110,12 +129,12 @@ body {
 	/* start -- this is what it look like before the animation begins */
 	0% {
 		opacity: 0;
-		transform: translateX(-100px);
+		transform: translateX(-10rem);
 	}
 
 	/* in between -- this is what it look like when the animation reaches 80% */
 	80% {
-		transform: translateX(10px);
+		transform: translateX(1rem);
 	}
 
 	/* finish -- this is what it look like after the animation */
@@ -129,11 +148,11 @@ body {
 @keyframes moveInRight {
 	0% {
 		opacity: 0;
-		transform: translateX(100px);
+		transform: translateX(10rem);
 	}
 
 	80% {
-		transform: translateX(-10px);
+		transform: translateX(-1rem);
 	}
 
 	100% {
@@ -146,7 +165,7 @@ body {
 @keyframes moveInBottom {
 	0% {
 		opacity: 0;
-		transform: translateY(30px);
+		transform: translateY(3rem);
 	}
 
 	100% {
@@ -159,21 +178,22 @@ body {
 .btn:visited {
 	text-transform: uppercase;
 	text-decoration: none;
-	padding: 15px 40px;
+	padding: 1.5rem 4rem;
 	display: inline-block;
-	border-radius: 100px;
-	transition: all 0.2s;
+	border-radius: 10rem;
+	transition: all .2s;
 	position: relative;
+	font-size: 1.6rem;
 }
 
 .btn:hover {
 	transform: translateY(-3px);
-	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
 }
 
 .btn:active {
 	transform: translateY(-1px);
-	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
 }
 
 .btn-white {
@@ -192,13 +212,13 @@ body {
 	width: 100%;
 
 	/* border-radius value should follow the parent value */
-	border-radius: 100px;
+	border-radius: 10rem;
 
 	position: absolute;
 	top: 0;
 	left: 0;
 	z-index: -1;
-	transition: all 0.4s;
+	transition: all .4s;
 }
 
 .btn-white::after {
@@ -213,7 +233,7 @@ body {
 }
 
 .btn-animated {
-	animation: moveInBottom 0.5s ease-out 0.75s;
+	animation: moveInBottom .5s ease-out .75s;
 
 	/* this will hide the button and display it after the two headings */
 	animation-fill-mode: backwards;
