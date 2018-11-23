@@ -1,0 +1,240 @@
+/*
+COLORS:
+
+Light green: #7ed56f
+Medium green: #55c57a
+Dark green: #28b485
+
+*/
+
+/* ::after and ::before pseudo-elements should be included since * only refers to the real elements */
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+
+	/* this will inherit the value from the body element -- border-box */
+	box-sizing: inherit;
+}
+
+/* to change the root font-size value -- for rem value -- */
+html {
+
+	/* to make it easier, change the font-size to 10px since 1 rem is == to root font-size */
+	/* font-size: 10px; */
+
+	/* but changing the root font-size here is bad practice */
+	/* instead, since we want 10px, divide 10 by 16 (the browser root font-size) multiplied by 100 for the percent */
+	font-size: 62.5%;
+}
+
+body {
+	font-family: "Lato", sans-serif;
+	font-weight: 400;
+	/* font-size: 16px; */
+	line-height: 1.7;
+	color: #777;
+	padding: 3rem;
+
+	/* this value will be inherited by the global element * */
+	box-sizing: border-box;
+}
+
+/* ---------------------------------------------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------------- HEADER ------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------------------------- */
+
+.header {
+
+	/* 95% viewport height */
+	height: 95vh;
+
+	/* this is to make the gradient go to the right bottom */
+	/* to go up, use ../ */
+	background-image: linear-gradient(to right bottom, rgba(126, 213, 111, .8), rgba(40, 180, 133, .8)), url(../img/hero.jpg);
+
+
+	background-size: cover;
+
+	/* this will always display the top of the image */
+	background-position: top;
+	position: relative;
+
+	/* this will make the clip design */
+	clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+}
+
+.header__logo-box {
+	position: absolute;
+	top: 4rem;
+	left: 4rem;
+}
+
+.header__logo {
+	height: 3.5rem;
+}
+
+.header__text-box {
+	position: absolute;
+	top: 40%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+
+.heading-primary {
+	color: #fff;
+	text-transform: uppercase;
+
+	/* this will hide the backface of an element from the user */
+	/* in the tutorial, the heading shakes after the animation -- this fix is to hide the shaking */
+	backface-visibility: hidden;
+
+	margin-bottom: 6rem;
+}
+
+.heading-primary--main {
+	display: block;
+	font-size: 6rem;
+	font-weight: 400;
+	letter-spacing: 3.5rem;
+
+	/* animation */
+	animation-name: moveInLeft;
+	animation-duration: 1s;
+	animation-timing-function: ease-out;
+
+	/* animation properties
+	animation-delay: 3s;
+	animation-iteration-count: 3;
+	*/
+}
+
+.heading-primary--sub {
+	display: block;
+	font-size: 2rem;
+	font-weight: 700;
+	letter-spacing: 1.75rem;
+
+	/* animation */
+	animation: moveInRight 1s ease-out;
+}
+
+/* animation */
+@keyframes moveInLeft {
+
+	/* start -- this is what it look like before the animation begins */
+	0% {
+		opacity: 0;
+		transform: translateX(-10rem);
+	}
+
+	/* in between -- this is what it look like when the animation reaches 80% */
+	80% {
+		transform: translateX(1rem);
+	}
+
+	/* finish -- this is what it look like after the animation */
+	100% {
+		opacity: 1;
+		transform: translate(0);
+	}
+}
+
+/* animation */
+@keyframes moveInRight {
+	0% {
+		opacity: 0;
+		transform: translateX(10rem);
+	}
+
+	80% {
+		transform: translateX(-1rem);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate(0);
+	}
+}
+
+/* animation */
+@keyframes moveInBottom {
+	0% {
+		opacity: 0;
+		transform: translateY(3rem);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translate(0);
+	}
+}
+
+.btn:link,
+.btn:visited {
+	text-transform: uppercase;
+	text-decoration: none;
+	padding: 1.5rem 4rem;
+	display: inline-block;
+	border-radius: 10rem;
+	transition: all .2s;
+	position: relative;
+	font-size: 1.6rem;
+}
+
+.btn:hover {
+	transform: translateY(-3px);
+	box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
+}
+
+.btn:active {
+	transform: translateY(-1px);
+	box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
+}
+
+.btn--white {
+	background-color: #fff;
+	color: #777;
+}
+
+.btn::after {
+
+	/* this two must be specified when using ::after pseudo-class */
+	/* display value should follow the parent value */
+	content: "";
+	display: inline-block;
+
+	height: 100%;
+	width: 100%;
+
+	/* border-radius value should follow the parent value */
+	border-radius: 10rem;
+
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: -1;
+	transition: all .4s;
+}
+
+.btn--white::after {
+	background-color: #fff;
+}
+
+.btn:hover::after {
+	transform: scaleX(1.4) scaleY(1.6);
+
+	/* this is the trick to fade out */
+	opacity: 0;
+}
+
+.btn--animated {
+	animation: moveInBottom .5s ease-out .75s;
+
+	/* this will hide the button and display it after the two headings */
+	animation-fill-mode: backwards;
+}
