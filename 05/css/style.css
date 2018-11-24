@@ -1,3 +1,35 @@
+/* these codes are the variables of the project */
+@keyframes moveInLeft {
+  /* start -- this is what it look like before the animation begins */
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem); }
+  /* in between -- this is what it look like when the animation reaches 80% */
+  80% {
+    transform: translateX(1rem); }
+  /* finish -- this is what it look like after the animation */
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(10rem); }
+  80% {
+    transform: translateX(-1rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(3rem); }
+  100% {
+    opacity: 1;
+    transform: translate(0); } }
+
 /* ::after and ::before pseudo-elements should be included since * only refers to the real elements */
 *,
 *::after,
@@ -13,7 +45,12 @@ html {
   /* font-size: 10px; */
   /* but changing the root font-size here is bad practice */
   /* instead, since we want 10px, divide 10 by 16 (the browser root font-size) multiplied by 100 for the percent */
-  font-size: 62.5%; }
+  font-size: 62.5%;
+  /* this defines what 1rem is */ }
+
+body {
+  /* this value will be inherited by the global element * */
+  box-sizing: border-box; }
 
 body {
   font-family: "Lato", sans-serif;
@@ -21,39 +58,7 @@ body {
   /* font-size: 16px; */
   line-height: 1.7;
   color: #777;
-  padding: 3rem;
-  /* this value will be inherited by the global element * */
-  box-sizing: border-box; }
-
-/* ---------------------------------------------------------------------------------------------------------------------- */
-/* ---------------------------------------------------------------------------------------------------------------------- */
-/* ------------------------------------------------------- HEADER ------------------------------------------------------- */
-/* ---------------------------------------------------------------------------------------------------------------------- */
-/* ---------------------------------------------------------------------------------------------------------------------- */
-.header {
-  /* 95% viewport height */
-  height: 95vh;
-  /* this is to make the gradient go to the right bottom */
-  /* to go up, use ../ */
-  background-image: linear-gradient(to right bottom, rgba(85, 197, 122, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
-  background-size: cover;
-  /* this will always display the top of the image */
-  background-position: top;
-  position: relative;
-  /* this will make the clip design */
-  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%); }
-  .header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem; }
-  .header__logo {
-    height: 3.5rem; }
-  .header__text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center; }
+  padding: 3rem; }
 
 .heading-primary {
   color: #fff;
@@ -82,40 +87,6 @@ body {
     letter-spacing: 1.75rem;
     /* animation */
     animation: moveInRight 1s ease-out; }
-
-/* animation */
-@keyframes moveInLeft {
-  /* start -- this is what it look like before the animation begins */
-  0% {
-    opacity: 0;
-    transform: translateX(-10rem); }
-  /* in between -- this is what it look like when the animation reaches 80% */
-  80% {
-    transform: translateX(1rem); }
-  /* finish -- this is what it look like after the animation */
-  100% {
-    opacity: 1;
-    transform: translate(0); } }
-
-/* animation */
-@keyframes moveInRight {
-  0% {
-    opacity: 0;
-    transform: translateX(10rem); }
-  80% {
-    transform: translateX(-1rem); }
-  100% {
-    opacity: 1;
-    transform: translate(0); } }
-
-/* animation */
-@keyframes moveInBottom {
-  0% {
-    opacity: 0;
-    transform: translateY(3rem); }
-  100% {
-    opacity: 1;
-    transform: translate(0); } }
 
 .btn:link, .btn:visited {
   text-transform: uppercase;
@@ -164,3 +135,28 @@ body {
   animation: moveInBottom .5s ease-out .75s;
   /* this will hide the button and display it after the two headings */
   animation-fill-mode: backwards; }
+
+.header {
+  /* 95% viewport height */
+  height: 95vh;
+  /* this is to make the gradient go to the right bottom */
+  /* to go up, use ../ */
+  background-image: linear-gradient(to right bottom, rgba(85, 197, 122, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-size: cover;
+  /* this will always display the top of the image */
+  background-position: top;
+  position: relative;
+  /* this will make the clip design */
+  clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%); }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; }

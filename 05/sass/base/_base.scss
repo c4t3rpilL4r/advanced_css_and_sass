@@ -1,0 +1,27 @@
+/* ::after and ::before pseudo-elements should be included since * only refers to the real elements */
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+
+	/* this will inherit the value from the body element -- border-box */
+	box-sizing: inherit;
+}
+
+/* to change the root font-size value -- for rem value -- */
+html {
+
+	/* to make it easier, change the font-size to 10px since 1 rem is == to root font-size */
+	/* font-size: 10px; */
+
+	/* but changing the root font-size here is bad practice */
+	/* instead, since we want 10px, divide 10 by 16 (the browser root font-size) multiplied by 100 for the percent */
+	font-size: 62.5%; /* this defines what 1rem is */
+}
+
+body {
+	
+	/* this value will be inherited by the global element * */
+	box-sizing: border-box;
+}
