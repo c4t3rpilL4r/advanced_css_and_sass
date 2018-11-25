@@ -1,3 +1,5 @@
+/* ---------------------------- HEADER ---------------------------- */
+
 .header {
 
 	/* 95% viewport height */
@@ -15,7 +17,7 @@
 	position: relative;
 
 	/* this will make the clip design */
-	clip-path: polygon(0 0, 100% 0, 100% 75%, 0 100%);
+	clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
 	&__logo-box {
 		position: absolute;

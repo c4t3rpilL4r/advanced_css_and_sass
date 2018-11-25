@@ -1,6 +1,5 @@
 .row {
 	max-width: $grid-width;
-	background-color: #eee;
 	margin: 0 auto;
 
 	// :not pseudo-class will excempt the chosen selector/class/pseudo-class
@@ -16,7 +15,6 @@
 	// ^ means the start, i.e. classes that start with col-
 	// refer to https://css-tricks.com/attribute-selectors/ for more details about attribute selector
 	[class^="col-"] {
-		background-color: orangered;
 		float: left;
 
 		&:not(:last-child) {

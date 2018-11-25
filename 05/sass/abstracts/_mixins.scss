@@ -1,3 +1,4 @@
+// this will clear the float values
 @mixin clearfix {
     &::after {
         content: "";
