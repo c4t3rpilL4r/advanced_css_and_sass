@@ -1,5 +1,23 @@
 .section-about {
-    background-color: $color-grey-light-1;
-    padding: 25rem 0;
-    margin-top: -20vh;
+	background-color: $color-grey-light-1;
+	padding: 25rem 0;
+	margin-top: -20vh;
+}
+
+.section-features {
+	padding: 20rem 0;
+	background-image: linear-gradient(
+		to right bottom,
+		rgba($color-primary-light, .8),
+		rgba($color-primary-dark, .8)),
+		url(../img/nat-4.jpg);
+	background-size: cover;
+	transform: skewY(-7deg); // this is to make the bg look like the bg of the header
+	margin-top: -13rem; // original is -10rem
+
+	// this means to choose everything (*) of the section-features class (&)
+	// > means direct child -- immediate child of section-features class is the div with class row only
+	& > * {
+		transform: skewY(7deg); // this will make the squares in section-features to straighten in line
+	}
 }

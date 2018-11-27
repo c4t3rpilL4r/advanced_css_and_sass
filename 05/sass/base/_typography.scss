@@ -52,7 +52,10 @@ body {
 	display: inline-block;
 
 	// to add gradient color to text
-	background-image: linear-gradient(to right, $color-primary-light, $color-primary-dark);
+	background-image: linear-gradient(
+		to right,
+		$color-primary-light,
+		$color-primary-dark);
 	background-clip: text; // refer to https://developer.mozilla.org/en-US/docs/Web/CSS/background-clip
 	-webkit-background-clip: text;
 	color: transparent;
