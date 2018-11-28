@@ -5,8 +5,8 @@
 	/* 95% viewport height */
 	height: 95vh;
 
-	/* this is to make the gradient go to the right bottom */
-	/* to go up, use ../ */
+	// this is to make the gradient go to the right bottom
+	// to go up, use ../
 	background-image: linear-gradient(
 		to right bottom,
 		rgba($color-primary-light, .8),
@@ -15,11 +15,12 @@
 
 	background-size: cover;
 
-	/* this will always display the top of the image */
+	// this will always display the top of the image
 	background-position: top;
 	position: relative;
 
-	/* this will make the clip design */
+	// this will make the clip design on the header
+	-webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 	clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
 	&__logo-box {
