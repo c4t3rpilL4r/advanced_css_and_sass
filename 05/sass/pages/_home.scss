@@ -21,3 +21,9 @@
 		transform: skewY(7deg); // this will make the squares in section-features to straighten in line
 	}
 }
+
+.section-tours {
+	background-color: $color-grey-light-1;
+	padding: 25rem 0 50rem 0;	
+	margin-top: -13rem; // original is -10rem
+}
