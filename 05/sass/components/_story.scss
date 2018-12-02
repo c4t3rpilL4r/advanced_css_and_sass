@@ -1,0 +1,44 @@
+/* ---------------------------- STORY ---------------------------- */
+
+.story {
+	width: 75%;
+	margin: 0 auto;
+	box-shadow: 0 3rem 6rem rgba($color-black, .1);
+	background-color: $color-white;
+	border-radius: 3px;
+	padding: 6rem;
+	padding-left: 9rem; // 9rem because the compiler would only add 3rem to the current 6rem padding
+	font-size: $default-font-size;
+	transform: skewX(-12deg);
+
+	&__shape {
+		width: 15rem;
+		height: 15rem;
+		float: left;
+
+		// this lets the other element flow around the current element
+		// this only works if element has defined width and height and floating
+		// refer to https://css-tricks.com/almanac/properties/s/shape-outside/
+		-webkit-shape-outside: circle(50% at 50% 50%);
+		shape-outside: circle(50% at 50% 50%);
+
+		-webkit-clip-path: circle(50% at 50% 50%);
+		clip-path: circle(50% at 50% 50%);
+
+		// to move the shape -3rem to the left without using margins when using float
+		// note: padding left of story class must be adjusted
+		transform: translateX(-3rem) skewX(12deg);
+
+		&:hover {
+
+		}
+	}
+
+	&__img {
+		height: 100%;
+	}
+
+	&__text {
+		transform: skewX(12deg);
+	}
+}
