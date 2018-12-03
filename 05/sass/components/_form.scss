@@ -1,0 +1,62 @@
+/* ---------------------------- FORM ---------------------------- */
+
+.form {
+    &__group:not(:last-child) {
+        margin-bottom: 2rem;
+    }
+    
+    &__input {
+        font-size: 1.5rem;
+
+        // this two should be declared since forms don't inherit the global values
+        font-family: inherit;
+        color: inherit;
+
+        padding: 1.5rem 2rem;
+        border-radius: 2px;
+        background-color: rgba($color-white, .5);
+        border: none;
+
+        // this is to not make the input below move when current input is clicked due to the styling of border-bottom: 3px solid $color-primary;
+        border-bottom: 3px solid transparent;
+
+        width: 90%;
+        display: block;
+
+        &:focus {
+            outline: none;
+            box-shadow: 0 1rem 2rem rgba($color-black, .1);
+            border-bottom: 3px solid $color-primary;
+        }
+
+        // this cannot be placed inside the &:focus because of the 3-nest-only ruling
+        // this will display the orange bottom border whenever the value inside the input is invalid
+        &:focus:invalid {
+            border-bottom: 3px solid $color-secondary-dark;
+        }
+
+        // this will make the placeholder color change
+        // use this if placeholder needs to be changed
+        &::-webkit-input-placeholder {
+            color: $color-grey-dark-2;
+        }
+    }
+
+    &__label {
+        font-size: 1.2rem;
+        font-weight: 700;
+        margin-left: 2rem;
+        margin-top: .7rem;
+        display: block;
+        transition: all .3s;
+    }
+
+    // + is called the adjacent sibling selector - this is used if the sibling-input is directly above the sibling-label or else, if vice-versa, this will not work
+    // ~ is called the general sibling selector - this is used if there are more siblings in between the chosen siblings
+    // this is to make the label do animation once the placeholder is no longer shown
+    &__input:placeholder-shown + &__label {
+        opacity: 0; // this is needed because visibility cannot be animated
+        visibility: hidden;
+        transform: translateY(-4rem);
+    }
+}
