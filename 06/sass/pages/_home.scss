@@ -1,0 +1,67 @@
+/* ---------------------------- HOME ---------------------------- */
+
+.section-about {
+	background-color: $color-grey-light-1;
+	padding: 25rem 0;
+	margin-top: -20vh;
+}
+
+.section-features {
+	padding: 20rem 0;
+	background-image: linear-gradient(
+		to right bottom,
+		rgba($color-primary-light, .8),
+		rgba($color-primary-dark, .8)),
+		url(../img/nat-4.jpg);
+	background-size: cover;
+	transform: skewY(-7deg); // this is to make the bg look like the bg of the header
+	margin-top: -13rem; // original is -10rem
+
+	// this means to choose everything (*) of the section-features class (&)
+	// > means direct child -- immediate child of section-features class is the div with class row only
+	& > * {
+		transform: skewY(7deg); // this will make the squares in section-features to straighten in line
+	}
+}
+
+.section-tours {
+	background-color: $color-grey-light-1;
+	padding: 25rem 0 15rem 0;	
+	margin-top: -13rem; // original is -10rem
+}
+
+.section-stories {
+	position: relative;
+	padding: 15rem 0;
+}
+
+.section-book {
+	padding: 15rem 0;
+	background-image: linear-gradient(
+		to right bottom,
+		$color-primary-light,
+		$color-primary-dark);
+}
+
+.book {
+
+	// solid-color gradient
+	// this is to make the white 105deg bg-color on the left and transparent on the right
+	background-image: linear-gradient(
+		105deg,
+		rgba($color-white, .9) 0%,
+		rgba($color-white, .9) 50%,
+		transparent 50%),
+		url(../img/nat-10.jpg);
+
+	background-size: 100%; // this is the same as saying bg-size: cover
+	border-radius: 3px; // note: since 3px has been used a lot, it is best to make a variable for it
+	box-shadow: 0 1.5rem 4rem rgba($color-black, .2);
+
+	height: 50rem;
+
+	&__form {
+		width: 50%;
+		padding: 6rem;
+	}
+}
